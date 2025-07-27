@@ -3,15 +3,15 @@ const NodeGeocoder = require('node-geocoder');
 
 const options = {
   provider: 'openstreetmap',
-  httpAdapter: 'https', // default
-  formatter: null,      // 'gpx', 'string', ...
-  fetch: (url, options) => {
-    // Add custom user-agent header
-    options.headers = {
-      ...options.headers,
-      'User-Agent': 'WanderLustApp/1.0 (your_email@example.com)' 
+  httpAdapter: 'https',
+  formatter: null,
+  fetch: async (url, fetchOptions) => {
+    fetchOptions.headers = {
+      ...fetchOptions.headers,
+      'User-Agent': 'WanderLustApp/1.0 (your_email@example.com)', 
+      'Referer': 'https://yourwebsite.com'
     };
-    return fetch(url, options);
+    return fetch(url, fetchOptions);
   }
 };
 
