@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Vector Tiles in Leaflet JS</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v3.6.1/maptiler-sdk.umd.min.js"></script>
+    <link
+      href="https://cdn.maptiler.com/maptiler-sdk-js/v3.6.1/maptiler-sdk.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.maptiler.com/leaflet-maptilersdk/v4.1.0/leaflet-maptilersdk.umd.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"
+    />
+    <style>
+      #map {
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script>
+      const key = "<%= mapToken %>";
+      // coordinates is an array: [lng, lat]
+      const listing = <%- listings %>;
+      // Leaflet expects [lat, lng]
+      const latlng = [listing.geometry.coordinates[1], listing.geometry.coordinates[0]];
+
+      const map = L.map("map").setView(latlng, 15);
+      const mtLayer = L.maptiler
+        .maptilerLayer({
+          apiKey: key,
+          style: L.maptiler.MapStyle.STREETS,
+        })
+        .addTo(map);
+      new L.Control.Geocoder().addTo(map);
+      const marker = L.marker(latlng).addTo(map);
+      marker.bindPopup(`<h5>${listing.location}</h5>`).openPopup();
+    </script>
+  </body>
+</html>

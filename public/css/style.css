@@ -1,0 +1,104 @@
+body{
+    font-family: "Poppins", sans-serif ; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+.contanier {
+    flex: 1;  
+}
+    
+.navbar{
+    height: 5rem;  
+    background-color: white;
+}
+
+.navbar-brand{
+    font-size: 2.5rem;
+    color: #fe424d !important;
+}
+
+.nav-link{
+    font-size: 20px;
+    color: black;
+}
+
+/* Footer */
+.f-info-links a {
+    text-decoration: none;
+    color: black;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+.f-info-links, .f-info-social, .f-info-brand{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.f-info-social i{
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.f-info{
+    height: 8rem;
+    background-color: gray;
+    text-align: center ;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* card */
+.listing-card{
+    border: none;
+    margin: 1.3rem;
+}
+
+.row {
+    justify-content: center;
+}
+
+.card-img-top{
+    border-radius: 1.5rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.listing-link{
+    text-decoration: none;
+}
+
+.card-img-overlay:hover{
+    background-color: beige;
+    opacity: 0.2;
+}
+
+/* Show Route */
+.show-img{
+    height: 30vh;
+}
+
+.btns {
+    display: flex;   
+}
+
+.btns form{
+    margin-left: 2rem;
+}
+
+.btns a{
+    background-color: #fe424d;
+}
+
+/* ********************************* */
