@@ -9,6 +9,7 @@
       class="needs-validation"
       enctype="multipart/form-data"
     >
+      <!-- Title -->
       <div class="mb-3">
         <label for="title" class="form-label">Title:</label>
         <input
@@ -19,9 +20,10 @@
           required
         />
         <div class="valid-feedback">Data saved successfully!</div>
-        <div class="invalid-feedback">Enter a valid data</div>
+        <div class="invalid-feedback">Enter a valid title</div>
       </div>
 
+      <!-- Description -->
       <div class="mb-3">
         <label for="description" class="form-label">Description:</label>
         <textarea
@@ -31,9 +33,10 @@
           required
         ></textarea>
         <div class="valid-feedback">Data saved successfully!</div>
-        <div class="invalid-feedback">Enter a valid data</div>
+        <div class="invalid-feedback">Enter a valid description</div>
       </div>
 
+      <!-- Image Upload -->
       <div class="mb-3">
         <label for="image" class="form-label">Upload Image:</label>
         <input
@@ -43,10 +46,11 @@
           id="image"
           required
         />
-        <div class="valid-feedback">Data saved successfully!</div>
-        <div class="invalid-feedback">Enter a valid data</div>
+        <div class="valid-feedback">Image uploaded successfully!</div>
+        <div class="invalid-feedback">Please upload a valid image</div>
       </div>
 
+      <!-- Price and Location -->
       <div class="row">
         <div class="mb-3 col-md-4">
           <label for="price" class="form-label">Price:</label>
@@ -55,10 +59,11 @@
             name="Listing[price]"
             class="form-control"
             id="price"
+            min="0"
             required
           />
-          <div class="valid-feedback">Data saved successfully!</div>
-          <div class="invalid-feedback">Enter a valid data</div>
+          <div class="valid-feedback">Price added!</div>
+          <div class="invalid-feedback">Enter a valid price</div>
         </div>
 
         <div class="mb-3 col-md-8">
@@ -71,11 +76,12 @@
             id="location"
             required
           />
-          <div class="valid-feedback">Data saved successfully!</div>
-          <div class="invalid-feedback">Enter a valid data</div>
+          <div class="valid-feedback">Location added!</div>
+          <div class="invalid-feedback">Enter a valid location</div>
         </div>
       </div>
 
+      <!-- Country -->
       <div class="mb-3">
         <label for="country" class="form-label">Country:</label>
         <input
@@ -86,12 +92,66 @@
           id="country"
           required
         />
-        <div class="valid-feedback">Data saved successfully!</div>
-        <div class="invalid-feedback">Enter a valid data</div>
+        <div class="valid-feedback">Country added!</div>
+        <div class="invalid-feedback">Enter a valid country</div>
       </div>
 
+      <!-- Category Dropdown -->
+      <div class="mb-3">
+        <label for="category" class="form-label">Category:</label>
+        <select
+          name="Listing[category]"
+          id="category"
+          class="form-select"
+          required
+        >
+          <option value="" disabled selected>Choose a category</option>
+          <option value="Beach">Beach</option>
+          <option value="Hills">Hills</option>
+          <option value="Desert">Desert</option>
+          <option value="Historic">Historic</option>
+          <option value="Culture">Culture</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Wildlife">Wildlife</option>
+          <option value="City">City</option>
+          <option value="Rural">Rural</option>
+          <option value="Winter">Winter</option>
+          <option value="Wellness">Wellness</option>
+          <option value="Food">Food</option>
+          <option value="Cruise">Cruise</option>
+          <option value="Festivals">Festivals</option>
+          <option value="Luxury">Luxury</option>
+          <option value="Budget">Budget</option>
+          <option value="Road Trips">Road Trips</option>
+        </select>
+        <div class="valid-feedback">Category selected!</div>
+        <div class="invalid-feedback">Please choose a category</div>
+      </div>
+
+      <!-- Submit Button -->
       <button class="btn btn-dark mb-3">Add</button>
       <br />
     </form>
   </div>
 </div>
+
+<!-- Bootstrap validation script -->
+<script>
+  (() => {
+    "use strict";
+    const forms = document.querySelectorAll(".needs-validation");
+    Array.from(forms).forEach((form) => {
+      form.addEventListener(
+        "submit",
+        (event) => {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add("was-validated");
+        },
+        false
+      );
+    });
+  })();
+</script>

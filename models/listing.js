@@ -55,10 +55,10 @@ const listingSchema = Schema({
     required: true
   }
   },
-  // category: {
-  //   type: string,
-  //   enum:["Beach", "Hills", "Desert", "Historic", "Culture", "Adventure", "Wildlife", "City", "Rural", "Winter", "Wellness", "Food", "Cruise", "Festivals", "Luxury", "Budget", "Road Trips"]
-  // }
+  category: {
+    type: string,
+    enum:["Beach", "Hills", "Desert", "Historic", "Culture", "Adventure", "Wildlife", "City", "Rural", "Winter", "Wellness", "Food", "Cruise", "Festivals", "Luxury", "Budget", "Road Trips"]
+  }
 });
 
 listingSchema.post("findOneAndDelete", async (listing) => {
