@@ -32,6 +32,8 @@ router
 //create new route
 router.get("/new", isLoggedIn, listingController.createNewListing);
 
+router.get("/filter/:category", listingController.filter);
+
 router.route("/:id")
     .get( wrapAsync(listingController.showListing)) //show route
     .put(isLoggedIn,

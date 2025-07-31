@@ -1,5 +1,6 @@
 const Listing = require("../models/listing.js");
 const NodeGeocoder = require('node-geocoder');
+// const fetch = require('node-fetch'); // ADD THIS
 
 const options = {
   provider: 'openstreetmap',
@@ -21,6 +22,14 @@ module.exports.index = async (req, res) => {
     let allListings = await Listing.find({});
     res.render("listings/index", { allListings });
 };
+
+module.exports.filter = async (req, res) => {
+    let { category } = req.params;
+    console.log("Category:", category); // ← Debug check
+    let allListings = await Listing.find({ category: category });
+    res.render("filter/showfilter", { allListings, category });
+};
+
 
 module.exports.createNewListing = (req, res) => {
     res.render("listings/new");

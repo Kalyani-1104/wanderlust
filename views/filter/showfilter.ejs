@@ -1,0 +1,34 @@
+<% layout("public/layouts/boilerplate") %>
+<style>
+  .tax-toggle {
+    display: none;
+  }
+</style>
+<h2><%= category %> Listings</h2>
+
+<% if (allListings.length === 0) { %>
+<p>No listings found in this category.</p>
+<% } else { %>
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+  <% for (let list of allListings) { %>
+  <a href="/listings/<%= list._id %>" class="listing-link">
+    <div class="card col listing-card">
+      <img
+        src="<%= list.image.url %>"
+        class="card-img-top"
+        style="height: 20rem"
+        alt="<%= list.title %>"
+      />
+      <div class="card-body">
+        <p class="card-title"><b><%= list.title %></b></p>
+        <p class="card-price">
+          <%= list.price.toLocaleString('en-IN', { style: 'currency', currency:
+          'INR' }) %>/night
+          <i class="tax-toggle">&nbsp;&nbsp;+18% GST</i>
+        </p>
+      </div>
+    </div>
+  </a>
+  <% } %>
+</div>
+<% } %>
