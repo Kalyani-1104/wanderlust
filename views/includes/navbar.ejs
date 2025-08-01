@@ -1,31 +1,44 @@
 <style>
   .btn-search {
-    background-color: #fe424d;
+    background-color: #004c4c;
+    color: aliceblue;
   }
 
   .btn-search:hover {
-    background-color: #fe424d;
+    background-color: #b68b2b;
+  }
+
+  .custom-logo-text {
+    font-family: "Georgia", serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: #004c4c;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-left: 0;
+    transition: color 0.3s ease;
+  }
+
+  .custom-logo-text:hover {
+    color: #b68b2b;
+    text-decoration: none;
   }
 </style>
 
 <nav class="navbar navbar-expand-lg bg-body-light border-bottom sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/listings"
-      ><i class="fa-solid fa-compass-drafting"></i
-    ></a>
-
-    <button
+    <!-- <button
       class="navbar-toggler"
       type="button"
       data-bs-toggle="collapse"
       data-bs-target="#navbarNavAltMarkup"
     >
       <span class="navbar-toggler-icon"></span>
-    </button>
+    </button> -->
 
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" href="/listings">Explore</a>
+        <a class="nav-link custom-logo-text" href="/listings">Wanderlust</a>
       </div>
 
       <div class="navbar-nav ms-auto">
