@@ -55,9 +55,7 @@ store.on("error", () => {
     console.log("Error in mongo session store", err);
 });
 
-p.get("/", (req, res) => {
-    res.send("Web page working!");
-});const sessionOptions = {
+const sessionOptions = {
     store,
     secret: process.env.SECRET,
     resave: false,
