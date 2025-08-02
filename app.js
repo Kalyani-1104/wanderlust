@@ -55,7 +55,9 @@ store.on("error", () => {
     console.log("Error in mongo session store", err);
 });
 
-const sessionOptions = {
+p.get("/", (req, res) => {
+    res.send("Web page working!");
+});const sessionOptions = {
     store,
     secret: process.env.SECRET,
     resave: false,
@@ -66,10 +68,6 @@ const sessionOptions = {
         httpOnly: true  //prevent cross scripting attack
     }
 };
-
-app.get("/", (req, res) => {
-    res.send("Web page working!");
-});
 
 app.use(session(sessionOptions));
 app.use(flash());
