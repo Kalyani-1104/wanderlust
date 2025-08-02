@@ -7,6 +7,10 @@ const { savedOriginalUrl } = require("../middleware.js");
 const userController = require("../controllers/user.js");
 
 router
+    .route("/")
+    .get(userController.renderLandingpg);
+
+router
     .route("/signup")
     .get(userController.renderSignupForm)
     .post(wrapAsync(userController.submitSignup));

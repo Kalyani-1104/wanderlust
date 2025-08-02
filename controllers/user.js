@@ -1,5 +1,9 @@
 const User = require("../models/user.js");
 
+module.exports.renderLandingpg = (req, res) => {
+    res.render("listings/home.ejs");
+}
+
 module.exports.renderSignupForm = (req, res) => {
     res.render("user/signup.ejs");
 };
