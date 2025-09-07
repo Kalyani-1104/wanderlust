@@ -1,13 +1,16 @@
 <style>
+  /* Search button */
   .btn-search {
     background-color: #004c4c;
     color: aliceblue;
+    transition: all 0.3s ease;
   }
-
   .btn-search:hover {
     background-color: #b68b2b;
+    color: #222;
   }
 
+  /* Logo text */
   .custom-logo-text {
     font-family: "Georgia", serif;
     font-size: 28px;
@@ -18,68 +21,80 @@
     margin-left: 0;
     transition: color 0.3s ease;
   }
-
   .custom-logo-text:hover {
     color: #b68b2b;
     text-decoration: none;
   }
 
+  /* Navigation buttons (Add / Logout) */
   .nav-btn {
+    font-family: "Georgia", serif;
     padding: 0.8rem 1.5rem;
     border-radius: 50px; /* pill shape */
     font-size: 1rem;
     font-weight: 500;
-    text-decoration: none;
     border: none;
     cursor: pointer;
+    text-decoration: none;
+    background-color: #004c4c;
+    color: aliceblue;
     transition: all 0.3s ease;
     margin-left: 0.5rem;
   }
-
-  .nav-btn.add {
-    font-family: "Georgia", serif;
-    background-color: #004c4c;
-    color: aliceblue;
-  }
-
-  .nav-btn.logout {
-    font-family: "Georgia", serif;
-    background-color: #004c4c;
-    color: aliceblue;
-    width: 7rem;
-  }
-
-  .nav-btn.add:hover,
-  .nav-btn.logout:hover {
+  .nav-btn:hover {
     background-color: #b68b2b;
     color: #222;
-    border-color: #b68b2b;
+  }
+  .nav-btn.logout {
+    width: 7rem;
   }
 </style>
 
-<nav class="navbar navbar-expand-lg bg-body-light border-bottom sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light border-bottom sticky-top">
   <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link custom-logo-text" href="/listings">Wanderlust</a>
-      </div>
+    <!-- Logo -->
+    <a class="custom-logo-text" href="/listings">Wanderlust</a>
 
-      <div class="navbar-nav ms-auto">
-        <form class="d-flex ms-auto me-3" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" />
+    <!-- Toggler (hamburger for mobile view) -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarMenu"
+      aria-controls="navbarMenu"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible menu items -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
+      <div class="navbar-nav align-items-center">
+        <!-- Search form -->
+        <form class="d-flex me-3" role="search">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search listings"
+          />
           <button
-            class="btn btn-search d-inline-flex align-items-center gap-2"
+            class="btn btn-search d-flex align-items-center gap-2"
             type="submit"
           >
             <i class="fa-solid fa-magnifying-glass"></i>
             <span>Search</span>
           </button>
         </form>
-      </div>
 
-      <div class="navbar-nav ms-auto">
+        <br />
+
+        <!-- Add new listing -->
         <a class="nav-btn add" href="/listings/new">➕ Add New Listing</a>
 
+        <!-- Show logout only if user is logged in -->
+        <br />
         <% if (currUser) { %>
         <a class="nav-btn logout" href="/">Log Out</a>
         <% } %>
