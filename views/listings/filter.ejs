@@ -50,25 +50,46 @@
     text-decoration: none;
   }
 
+  /* Mobile styles */
+  /* Hide button by default */
+  #showFiltersBtn {
+    display: none;
+  }
+
+  /* Default filters (desktop view) */
+  #filters {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  /* Mobile styles */
   @media (max-width: 600px) {
     #filters {
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      justify-content: flex-start;
+      display: none; /* hidden by default */
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    #filters.show-all {
+      display: flex; /* show when button clicked */
+    }
+
+    /* Show button only on mobile */
+    #showFiltersBtn {
+      display: block;
     }
 
     .filter {
       flex: 0 0 auto;
       min-width: 70px;
-      margin: 0 0.5rem;
-    }
-
-    #filters::-webkit-scrollbar {
-      display: none;
+      margin: 0.5rem;
     }
   }
 </style>
+
+<span
+  ><button id="showFiltersBtn" class="toggle_tax">Show All Filters</button>
+</span>
 
 <div id="filters">
   <a href="/listings/filter/Beach">
@@ -944,5 +965,21 @@
       }
     }
   });
+
+  // Toggle filters on button click
+  document
+    .getElementById("showFiltersBtn")
+    .addEventListener("click", function () {
+      const filters = document.getElementById("filters");
+      filters.classList.toggle("show-all");
+
+      // Change button text dynamically
+      if (filters.classList.contains("show-all")) {
+        this.textContent = "Hide Filters";
+      } else {
+        this.textContent = "Show All Filters";
+      }
+    });
 </script>
+
 
