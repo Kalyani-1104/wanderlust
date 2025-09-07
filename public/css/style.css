@@ -102,3 +102,51 @@ body{
 }
 
 /* ********************************* */
+/* Dark theme overrides */
+.dark {
+    --bg-color: #3F4F44;
+    --list-color: #5A6353;
+    --text-color: #DCD7C9;
+    --link-color: #A27B5C;
+    --nav-bg: #2C3930;
+    --hover-color: #b68b2b;
+}
+
+/* Apply variables */
+body, input, .card-body, .listing-card {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+form input {
+    color: var(--list-color);
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.navbar {
+    background-color: var(--nav-bg);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.custom-logo-text {
+    color: var(--hover-color) !important;
+    text-decoration: none;
+}
+
+.card-img-overlay:hover {
+    background-color: var(--hover-color);
+    opacity: 0.2;
+}
+
+.form-control,
+.form-select {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
