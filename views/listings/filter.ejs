@@ -49,6 +49,25 @@
     color: #000000;
     text-decoration: none;
   }
+
+  @media (max-width: 600px) {
+    #filters {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      justify-content: flex-start;
+    }
+
+    .filter {
+      flex: 0 0 auto;
+      min-width: 70px;
+      margin: 0 0.5rem;
+    }
+
+    #filters::-webkit-scrollbar {
+      display: none;
+    }
+  }
 </style>
 
 <div id="filters">
@@ -926,3 +945,4 @@
     }
   });
 </script>
+
