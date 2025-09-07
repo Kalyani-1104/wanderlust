@@ -15,4 +15,26 @@
         form.classList.add('was-validated')
       }, false)
     })
-  })()
+})()
+  
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleSwitch = document.getElementById("theme-toggle");
+  const body = document.body;
+
+  // Apply stored preference
+  if (localStorage.getItem("theme") === "dark") {
+    body.classList.add("dark");
+    toggleSwitch.checked = true;
+  }
+
+  // Listen for toggle
+  toggleSwitch.addEventListener("change", () => {
+    if (toggleSwitch.checked) {
+      body.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      body.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  });
+});
