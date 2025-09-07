@@ -87,9 +87,7 @@
   }
 </style>
 
-<span
-  ><button id="showFiltersBtn" class="toggle_tax">Show All Filters</button>
-</span>
+<button id="showFiltersBtn" class="toggle_tax">Show All Filters</button>
 
 <div id="filters">
   <a href="/listings/filter/Beach">
@@ -936,19 +934,13 @@
     </a>
   </div>
   <!-- ****************************************** -->
-</div>
-<span class="toggle_tax">
-  <div class="form-check-reverse form-switch">
-    <input
-      class="form-check-input"
-      type="checkbox"
-      value=""
-      id="checkNativeSwitch"
-      switch
-    />
-    <label class="form-check-label" for="checkNativeSwitch"> Dark Mode: </label>
+<div class="toggle_tax">
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" id="theme-toggle" />
+      <label class="form-check-label" for="theme-toggle"> Switch Theme </label>
+    </div>
   </div>
-</span>
+</div>
 
 <script>
   let taxSwitch = document.getElementById("checkNativeSwitch");
@@ -979,6 +971,7 @@
       }
     });
 </script>
+
 
 
 
