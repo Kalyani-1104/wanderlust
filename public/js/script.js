@@ -38,3 +38,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// Toggle filters on button click
+  document
+    .getElementById("showFiltersBtn")
+    .addEventListener("click", function () {
+      const filters = document.getElementById("filters");
+      filters.classList.toggle("show-all");
+
+      // Change button text dynamically
+      if (filters.classList.contains("show-all")) {
+        this.textContent = "Hide Filters";
+      } else {
+        this.textContent = "Show All Filters";
+      }
+    });
+
